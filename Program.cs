@@ -71,3 +71,17 @@ List<Rent> AllRents()
     }
     return rents;
 }
+
+List<Rent> UserRent(string name, string surname)
+{
+    List<Rent> rents = new List<Rent>();
+    foreach (User user in users)
+    {
+        if (user.Name == name && user.Surname == surname)
+        {
+            rents = user.Rents;
+        }
+    }
+    return rents;
+}
+

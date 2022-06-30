@@ -46,7 +46,7 @@ namespace CSharpBiblioteca
         public long SerialNumber { get; set; }
         public int Runtime { get; set; }
 
-        public DVD(long serialNumber, string title, string sector, int numberOfCopies int rack, Author author, int runtime)
+        public DVD(long serialNumber, string title, string sector, int numberOfCopies, int rack, Author author, int runtime)
             : base(serialNumber.ToString(), title, sector, numberOfCopies, rack, author)
         {
             SerialNumber = serialNumber;

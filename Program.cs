@@ -85,3 +85,5 @@ List<Rent> UserRent(string name, string surname)
     return rents;
 }
 
+Menu menu = new Menu("Biblioteca online", new Menu[] { new Menu("primo"), new Menu("secondo") });
+menu.Display();

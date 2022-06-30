@@ -9,11 +9,12 @@ namespace CSharpBiblioteca
     internal class Menu
     {
         protected string title;
-        protected Menu[]? subMenus;
+        protected Menu[] subMenus;
         
         public Menu(string title)
         {
             this.title = title;
+            this.subMenus = new Menu[0];
         }
         
         public Menu(string title, Menu[] subMenus)
@@ -22,21 +23,24 @@ namespace CSharpBiblioteca
             this.subMenus = subMenus;
         }
 
-        public void Run()
+        public void Display()
         {
-            Console.Clear();
             char input = ' ';
+            List<char> choices = new List<char>();
+            for (int i = 0; i < subMenus.Length; i++)
+            {
+                choices.Add((char)(i + 49));
+            }
             do
             {
-                Console.WriteLine(title);
-                do
+                Console.WriteLine("\n{0}", title);
+                Console.WriteLine();
+                for (int i = 0; i < subMenus.Length; i++)
                 {
-                    input = Console.ReadKey().KeyChar;
+                    Console.WriteLine("{0}: {1}", i + 1, subMenus[i].title);
                 }
-                while (input != '1');
                 input = Console.ReadKey().KeyChar;
-            }
-            while (input != '4');
-        } 
+            } while (!choices.Contains(input));
+        }
     }
 }

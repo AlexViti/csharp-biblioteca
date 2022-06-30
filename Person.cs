@@ -18,28 +18,33 @@ namespace CSharpBiblioteca
             Name = name;
         }
     }
-    
+
+    internal class Author : Person
+    {
+        public Author(string surname, string name) : base(surname, name) { }
+
+    }
+
     internal class User : Person
     {
         public string Email { get; set; }
         public string Password { get; set; }
-        public int Phone { get; set; }
-        public List<Document> Documents { get; }
+        public long Phone { get; set; }
+        public List<Rent> Rents { get; }
 
-        public User(string surname, string name, string email, string password, int phone) : base(surname, name)
+        public User(string surname, string name, string email, string password, long phone) : base(surname, name)
         {
             Email = email;
             Password = password;
             Phone = phone;
-            Documents = new List<Document>();
+            Rents = new List<Rent>();
         }
     }
-    
-    internal class Author : Person
+
+    internal class Admin : User
     {
-        public Author(string surname, string name) : base(surname, name)
-        {
-            
-        }
+        public Admin(string surname, string name, string email, string password, long phone)
+            : base(surname, name, email, password, phone) { }
     }
+   
 }
